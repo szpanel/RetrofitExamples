@@ -34,7 +34,8 @@ public class Main {
         final User user = service.findById(4L).execute().body();
         User tempUser = service.findById(9L).execute().body();
         Response<User> savedUser = service.save(main.makeCustomUser()).execute();
-        Response<User> updatedUser = service.update(user.getId(), tempUser.setEmail("szpanelek@gmail.com")).execute();
+        Response<User> updatedUser =
+                service.update(tempUser.getId(), tempUser.setEmail("szpanelek@gmail.com")).execute();
         Response<User> deletedUser = service.delete(user.getId()).execute();
 
 
